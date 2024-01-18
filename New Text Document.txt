@@ -1,0 +1,67 @@
+#include<iostream>
+using namespace std;
+
+class A {
+		private :
+		int i;
+		public:
+		
+		A()
+		{
+		   cout<<"\n Defailt constructotr is called...";
+			i=0;
+		}
+		
+		A(int r)
+		{
+			cout<<"\n Parameter construtor is called... ";
+			i = r;
+		}
+		~A()
+		{
+			cout<<"\n destructor is called..."; 
+		}
+		
+		void display()
+		{
+			cout<<"\n value of is  "<<i;
+		}
+		
+		A operator = (const A &c)
+		{
+			i = c.i;
+			return *this;
+		}
+		
+		A operator* (const A &c)
+		{
+			A res;
+			res.i = i * c.i;
+			return res;
+		}
+};
+
+int main()
+{
+	A a1,a2(5),a3(6);
+	a1.display();
+	a2.display();
+    
+	a1=a2*a3;
+	a1.display();
+	a2.display();
+	
+	a1=a2;
+	a1.display();
+	
+	return 0;
+	
+}
+		
+		
+		
+		
+		
+		
+		
+		
